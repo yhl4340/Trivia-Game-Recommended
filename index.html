@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trivia Game</title>
+
+    <!-- style sheets -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <style>
+      *{
+        font-size:18px;
+      }
+      .jumbotron {
+        background: #006e90;
+        font-size: 34px;
+        text-align: center;
+        color: #99c24d;
+      }
+      h2 {
+        font-size: 26px;
+        margin:auto auto 20px auto;
+      }
+      button .clicked {
+        background: red;
+      }
+      #question button {
+        display: block;
+        width: 30%;
+        text-align: left;
+      }
+      #question button:focus {
+        background: yellow;
+      }
+      #question button:hover {
+        background: green;
+      }
+      .gif {
+        display: none;
+      }
+      #summary-text {
+        border: 3px green dotted;
+        border-radius: 8px;
+        font-size: 40px;
+        margin: 0 auto;
+        width:550px;
+        height: 100px;
+      }
+      img {
+        object-position: cover;
+        width:18%;
+        height: 8%;
+        margin:0 auto;
+        margin-top:30px;
+        margin-left:600px;
+      }
+      #wrapper {
+        margin:0 auto;
+        text-align: center;
+        background:#f18f01;
+        width:75%;
+        padding-bottom:30px;
+        
+      }
+      #summary {
+        margin:0 auto;
+        text-align: center;
+        background:#f18f01;
+        width:75%;
+        padding-bottom:15px;
+        padding-top:15px;
+        
+      }
+     button {
+      margin:0 auto;
+      margin-top:5px;
+      border-radius: 3px;
+     }
+     button.btn {
+       margin-top:30px;
+       margin:0 auto;
+       text-align: center;
+     }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="jumbotron">Basic Disney Trivia Game</div>
+
+      <div id="wrapper">
+        <div id="time-remaining">Time Remaining: </div>
+        <h2>Question Title</h2>
+        <div id="question">
+        <p id="text"></p>
+      </div>
+        <button class="btn btn-primary align-self-center" style="margin-top:15px" type="submit">submit</button>
+      </div>
+
+      <div id="summary">
+        <div id="summary-text"></div>
+        <p id="correct"></p>
+        <p id="incorrect"></p>
+        <div id="total"></div>
+        <div id="time-out"></div>
+        <div id="win"></div>
+        <div id="lost"></div>
+        
+        
+        <button id="reset" class="btn btn-warning" type="reset" >Reset</button>
+      </div>
+      <!-- placehold for all images -->
+      <img id="img" style="border:2px red dotted;">
+    </div> 
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <!-- //JS -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+  </body>
+</html>
