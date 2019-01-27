@@ -13,8 +13,8 @@ var questions = [
       "*The character of this movie enters the Land of the  Dead to seek blessing from his grandfather? ",
     answer: ["Finding Nemo", "Moana", "Coco", "Wall E"],
     correct: 2,
-    imageRight: "assets/images/giphy.gif",
-    imageWrong: "assets/images/test.gif"
+    imageRight: "assets/images/test.gif",
+    imageWrong: "assets/images/giphy.gif"
   },
   {
     title:
@@ -103,10 +103,10 @@ window.onload = function() {
 // pick a title from array and inserts the answers into the buttons
 function showQ() {
   console.log('if ('+currentQ+' >= '+questions.length+')')
-  if (currentQ >= questions.length) {
-    summary();
-    return 
-  };
+  // if (currentQ >= questions.length) {
+  //   summary();
+  //   return 
+  // };
   $("#wrapper").show();
   $("#summary").hide();
   console.log('show question')
@@ -155,7 +155,7 @@ $(".btn").on("click", function() {
     },
     5000
   );
-  
+
 });
 
 //----------------------CHECK GUESS
@@ -184,15 +184,22 @@ function check(userGuess) {
   //increment currenq outside of the if function becase the count continues whether or not if the user gets it right or not.
   //if run out of questions, then show summary, otherwise, show next question
       currentQ++;
-      // console.log('if('+currentQ+' >= '+questions.length+')')
-      // if (currentQ >= questions.length) {
-      //   summary();
-      // };
-    
-      //   showQ();
-      // };
+      if (currentQ >= questions.length) {
+        summary();
+        if (correct > incorrect) {
+          $("#summary-text")
+            .html("Congrats, you won!")
+            .css("text-align", "center").show();
+            alert ('You won!');
+        }else {
+          $("#summary-text")
+            .html("Sorry.")
+            .css("text-align", "center").show();
       
+        return 
+      };
   };
+};
       
   
 //------------------------TIMERS
@@ -230,24 +237,36 @@ function summary() {
   stop();
   $("#wrapper").hide();
   $("#summary").show();
+  console.log('end');
   //set the timers for 10 sec and the time's up
-  // if (correct > incorrect) {
-  //   $("#summary-text")
-  //     .html("That is right!")
-  //     .css("text-align", "center");
-  // } else {
-  //   $("#summary-text")
-  //     .html("Sorry. That was not correct.")
-  //     .css("text-align", "center");
-  //     incorrect++;
-  //  };
-
+ 
   $("#correct").html("Correct guess: " + correct + " : ");
   $("#incorrect").html("Incorrect guess: " + incorrect + " : ");
   // $("#total").html(
   //   "You got " + correct + "out of " + questions.length + " correct! ");
+  if (currentQ >= questions.length) {
+    endGame();
+    
+  }
 };
 
+function endGame (){
+  stop();
+  clearTimeout(setTimeout);
+  if (correct > incorrect) {
+    $("#summary-text")
+      .html("Congrats, you won!")
+      .css("text-align", "center")
+      .show();
+    alert('You won!');
+  }else {
+    $("#summary-text")
+      .html("Sorry.")
+      .css("text-align", "center")
+      .show();
+  }
+  
+}
 
 //  ==========================================instructions======================
 
